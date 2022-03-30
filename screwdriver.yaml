@@ -19,7 +19,7 @@ jobs:
     environment:
         PKGSPACE: user_traffic_analysis
         ARTIFACTORYHOST: <Add artifactory-ssh-proxy-url-here>
-        ARTIFACTORYREPO: ICE
+        ARTIFACTORYREPO: UTA
         SPECFILE: user_traffic_analysis
         SRCDIR: SRC
         GITSRCBRANCH: master
@@ -67,7 +67,7 @@ jobs:
             # scp -v ${SCP_ARGS} ${RPM_FILE} ${ARTIFACTORYHOST}:${ArtifactoryPath}${RPM_FILE}
             if [[ -z "${SD_PULL_REQUEST}" ]]; then
               SCP_ARGS='-oBatchMode=yes -P 4443'
-              # scp -v ${SCP_ARGS} ${SD_SOURCE_DIR}/ICE.repo ${ARTIFACTORYHOST}:/${ARTIFACTORYREPO}/ICE.repo
+              # scp -v ${SCP_ARGS} ${SD_SOURCE_DIR}/UTA.repo ${ARTIFACTORYHOST}:/${ARTIFACTORYREPO}/UTA.repo
               scp -v ${SCP_ARGS} ${RPM_FILE} ${ARTIFACTORYHOST}:${ArtifactoryPath}${RPM_FILE}
             else
               echo "[PRJOB] Skipping RPM publish to Artifactory"
