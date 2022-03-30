@@ -49,11 +49,11 @@ class Controller:
               print(json.dumps(top_three_user_agent, indent=4))
         
         # Part 3: working on finding ratio between GET and POST call by OS by day
-        # TO DO: part 3 will be pushed in next subsequent release ..
-        # WORK IN PROGRESS ......
         if self.http_get_post_ratio:
+            logging.info(" ~~~~ GET & POST stats by OS by day ~~~~\n")
             http_get_post_maanger = HttpMethodsManager()
             get_post_ratio = http_get_post_maanger.fetch_get_post_ratio(self.log_file)
+            print(json.dumps(get_post_ratio, indent=4))
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Perform an analysis on user web traffic")

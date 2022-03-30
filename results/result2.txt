@@ -1,0 +1,280 @@
+# 1
+
+% python3 scripts/Controller.py -f log/sample.log -a 
+2022-03-31 01:49:48 INFO     Working on user traffic log file: log/sample.log
+2022-03-31 01:49:48 INFO     Working on all user traffic analysis: 
+1. Number of user requests served by day 
+2. List three most frequent user agents by day 
+3. Ratio of GET to POST HTTP method calls by OS by day
+
+********** USET INPUT *************************
+2022-03-31 01:49:48 INFO     User traffic log file: log/sample.log _/
+2022-03-31 01:49:48 INFO     User_requests_analysis: True _/
+2022-03-31 01:49:48 INFO     User_agents_analysis: True _/
+2022-03-31 01:49:48 INFO     Http_get_post_ratio: True _/
+***********************************************
+
+2022-03-31 01:49:48 INFO      ~~~~ NUMBER OF REQUSTS SERVED BY DAY ~~~~
+
+{
+    "01/Dec/2011": {
+        "127.0.0.1": 2822
+    },
+    "01/Foo/2011": {
+        "127.0.0.1": 1
+    },
+    "02/Dec/2011": {
+        "127.0.0.1": 2572
+    },
+    "03/Dec/2011": {
+        "127.0.0.1": 604
+    },
+    "03/De/2011": {
+        "127.0.0.1": 1
+    }
+}
+2022-03-31 01:49:48 INFO      ~~~~ Three Most Frequent User Agents by day ~~~~
+
+{
+    "01/Dec/2011": {
+        "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)": 456,
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 324,
+        "Mozilla/5.0 (compatible; Ezooms/1.0; ezooms.bot@gmail.com)": 245
+    },
+    "01/Foo/2011": {
+        "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)": 1
+    },
+    "02/Dec/2011": {
+        "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)": 364,
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 281,
+        "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)": 178
+    },
+    "03/Dec/2011": {
+        "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)": 142,
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 68,
+        "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)": 36
+    },
+    "03/De/2011": {
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 1
+    }
+}
+2022-03-31 01:49:48 INFO      ~~~~ GET & POST stats by OS by day ~~~~
+
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '01/Dec/2011:14:33:25 -0500', 'HEAD / HTTP/1.0', 'http://www.gsa-online.de/', 'Opera/9.80 (Windows NT 5.1; U; en) Presto/2.7.62 Version/11.01')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:01:39:40 -0500', 'HEAD / HTTP/1.0', '-', 'swish-e http://swish-e.org/')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:02:04:07 -0500', 'HEAD / HTTP/1.0', '-', 'swish-e http://swish-e.org/')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:02:42:39 -0500', 'HEAD / HTTP/1.0', '-', 'swish-e http://swish-e.org/')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:07:22:49 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:14:13:45 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:14:37:26 -0500', 'HEAD /post/having-a-hard-time-keeping-my/ HTTP/1.0', '-', 'Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9a8) Gecko/2007100619 GranParadiso/3.0a8')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD /post/having-a-hard-time-keeping-my/ HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:16:50:40 -0500', 'HEAD /wp-content/uploads/2008/03/little-snitch-network-monitor-nmbd-prompt-at-columbia.png HTTP/1.0', '-', 'Baiduspider-image+(+http://www.baidu.com/search/spider.htm)')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD /wp-content/uploads/2008/03/little-snitch-network-monitor-nmbd-prompt-at-columbia.png HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:18:30:34 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '03/Dec/2011:01:20:09 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:49:48 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:49:48 DEBUG    Log fields: ('127.0.0.1', '-', '-', '03/Dec/2011:04:27:17 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:49:48 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+{
+    "01/Dec/2011": {
+        "Unknown_OS": {
+            "GET": 1724,
+            "POST": 108
+        },
+        "Windows": {
+            "GET": 612,
+            "POST": 157
+        },
+        "Linux": {
+            "GET": 122,
+            "POST": 1
+        },
+        "Macintosh": {
+            "GET": 93,
+            "POST": 0
+        }
+    },
+    "01/Foo/2011": {
+        "Windows": {
+            "GET": 0,
+            "POST": 0
+        }
+    },
+    "02/Dec/2011": {
+        "Unknown_OS": {
+            "GET": 1517,
+            "POST": 104
+        },
+        "Windows": {
+            "GET": 558,
+            "POST": 171
+        },
+        "Linux": {
+            "GET": 140,
+            "POST": 1
+        },
+        "Macintosh": {
+            "GET": 69,
+            "POST": 0
+        }
+    },
+    "03/Dec/2011": {
+        "Unknown_OS": {
+            "GET": 375,
+            "POST": 25
+        },
+        "Windows": {
+            "GET": 120,
+            "POST": 40
+        },
+        "Linux": {
+            "GET": 36,
+            "POST": 1
+        },
+        "Macintosh": {
+            "GET": 1,
+            "POST": 0
+        }
+    },
+    "03/De/2011": {
+        "Unknown_OS": {
+            "GET": 0,
+            "POST": 0
+        }
+    }
+}
+
+# 2
+
+ % python3 scripts/Controller.py -f log/sample.log -gp
+2022-03-31 01:48:13 INFO     Working on user traffic log file: log/sample.log
+2022-03-31 01:48:13 INFO     Working on finding GET to POST ratio by OS by day !
+
+********** USET INPUT *************************
+2022-03-31 01:48:13 INFO     User traffic log file: log/sample.log _/
+2022-03-31 01:48:13 INFO     User_requests_analysis: False _/
+2022-03-31 01:48:13 INFO     User_agents_analysis: False _/
+2022-03-31 01:48:13 INFO     Http_get_post_ratio: True _/
+***********************************************
+
+2022-03-31 01:48:13 INFO      ~~~~ GET & POST stats by OS by day ~~~~
+
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '01/Dec/2011:14:33:25 -0500', 'HEAD / HTTP/1.0', 'http://www.gsa-online.de/', 'Opera/9.80 (Windows NT 5.1; U; en) Presto/2.7.62 Version/11.01')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:01:39:40 -0500', 'HEAD / HTTP/1.0', '-', 'swish-e http://swish-e.org/')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:02:04:07 -0500', 'HEAD / HTTP/1.0', '-', 'swish-e http://swish-e.org/')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:02:42:39 -0500', 'HEAD / HTTP/1.0', '-', 'swish-e http://swish-e.org/')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:07:22:49 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:14:13:45 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:14:37:26 -0500', 'HEAD /post/having-a-hard-time-keeping-my/ HTTP/1.0', '-', 'Mozilla/5.0 (X11; U; Linux x86_64; en-US; rv:1.9a8) Gecko/2007100619 GranParadiso/3.0a8')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD /post/having-a-hard-time-keeping-my/ HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:16:50:40 -0500', 'HEAD /wp-content/uploads/2008/03/little-snitch-network-monitor-nmbd-prompt-at-columbia.png HTTP/1.0', '-', 'Baiduspider-image+(+http://www.baidu.com/search/spider.htm)')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD /wp-content/uploads/2008/03/little-snitch-network-monitor-nmbd-prompt-at-columbia.png HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '02/Dec/2011:18:30:34 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '03/Dec/2011:01:20:09 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+2022-03-31 01:48:13 WARNING  Failed to parse HTTP method !!
+2022-03-31 01:48:13 DEBUG    Log fields: ('127.0.0.1', '-', '-', '03/Dec/2011:04:27:17 -0500', 'HEAD / HTTP/1.0', '-', '-')
+2022-03-31 01:48:13 DEBUG    HTTP method filed: HEAD / HTTP/1.0
+{
+    "01/Dec/2011": {
+        "Unknown_OS": {
+            "GET": 1724,
+            "POST": 108
+        },
+        "Windows": {
+            "GET": 612,
+            "POST": 157
+        },
+        "Linux": {
+            "GET": 122,
+            "POST": 1
+        },
+        "Macintosh": {
+            "GET": 93,
+            "POST": 0
+        }
+    },
+    "01/Foo/2011": {
+        "Windows": {
+            "GET": 0,
+            "POST": 0
+        }
+    },
+    "02/Dec/2011": {
+        "Unknown_OS": {
+            "GET": 1517,
+            "POST": 104
+        },
+        "Windows": {
+            "GET": 558,
+            "POST": 171
+        },
+        "Linux": {
+            "GET": 140,
+            "POST": 1
+        },
+        "Macintosh": {
+            "GET": 69,
+            "POST": 0
+        }
+    },
+    "03/Dec/2011": {
+        "Unknown_OS": {
+            "GET": 375,
+            "POST": 25
+        },
+        "Windows": {
+            "GET": 120,
+            "POST": 40
+        },
+        "Linux": {
+            "GET": 36,
+            "POST": 1
+        },
+        "Macintosh": {
+            "GET": 1,
+            "POST": 0
+        }
+    },
+    "03/De/2011": {
+        "Unknown_OS": {
+            "GET": 0,
+            "POST": 0
+        }
+    }
+}
