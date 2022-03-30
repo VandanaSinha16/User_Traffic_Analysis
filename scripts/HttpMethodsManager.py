@@ -10,6 +10,10 @@ class HttpMethodsManager:
         pass
     
     def fetch_get_post_ratio(self, log_file):
+       """
+       // method build get and post stats per OS by each day
+       // stat result in stored in json format
+       """
        DAY_REGEX = re.compile(r'\d{2}\/\w{1,3}\/\d{4}')
        OS_REGEX = re.compile(r'(Windows|Linux|Android|Macintosh|iphone)')
        HTTP_METHOD_REGEX = re.compile(r'(?:GET|POST)')
