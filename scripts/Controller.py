@@ -75,7 +75,7 @@ if __name__ == "__main__":
     parser.add_argument("-ua", "--user_agents", action="store_true", help="List three most frequent user agents by day", default=False)
     parser.add_argument("-gp", "--get_post_ratio", action="store_true", help="Ratio of GET to POST HTTP method calls by OS by day", default=False)
 
-    parser.add_argument("-v", "--verbose", action="store_true", help="Ratio of GET to POST HTTP method calls by OS by day", default=False)
+    parser.add_argument("-v", "--verbose", action="store_true", help="verbose mode", default=False)
     args = parser.parse_args()
     
     if args.verbose:
