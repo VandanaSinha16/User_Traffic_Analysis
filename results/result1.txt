@@ -1,0 +1,159 @@
+python3 scripts/Controller.py -f log/sample.log -ua -ur
+2022-03-31 00:13:53 INFO     Working on user traffic log file: log/sample.log
+2022-03-31 00:13:53 INFO     Working on finding number of requests served by day !
+2022-03-31 00:13:53 INFO     Working on finding top three user agents by day !
+
+********** USET INPUT *************************
+2022-03-31 00:13:53 INFO     User traffic log file: log/sample.log _/
+2022-03-31 00:13:53 INFO     User_requests_analysis: True _/
+2022-03-31 00:13:53 INFO     User_agents_analysis: True _/
+2022-03-31 00:13:53 INFO     Http_get_post_ratio: False _/
+***********************************************
+
+2022-03-31 00:13:53 INFO      ~~~~ NUMBER OF REQUSTS SERVED BY DAY ~~~~
+
+{
+    "01/Dec/2011": {
+        "127.0.0.1": 2822
+    },
+    "01/Foo/2011": {
+        "127.0.0.1": 1
+    },
+    "02/Dec/2011": {
+        "127.0.0.1": 2572
+    },
+    "03/Dec/2011": {
+        "127.0.0.1": 604
+    },
+    "03/De/2011": {
+        "127.0.0.1": 1
+    }
+}
+2022-03-31 00:13:53 INFO      ~~~~ Three Most Frequent User Agents by day ~~~~
+
+{
+    "01/Dec/2011": {
+        "Mozilla/5.0": 1604,
+        "Mozilla/4.0": 569,
+        "WordPress/3.2.1;": 106
+    },
+    "01/Foo/2011": {
+        "Mozilla/4.0": 1
+    },
+    "02/Dec/2011": {
+        "Mozilla/5.0": 1409,
+        "Mozilla/4.0": 541,
+        "WordPress/3.2.1;": 102
+    },
+    "03/Dec/2011": {
+        "Mozilla/5.0": 390,
+        "Mozilla/4.0": 101,
+        "WordPress/3.2.1;": 23
+    },
+    "03/De/2011": {
+        "Mozilla/5.0": 1
+    }
+}
+
+
+
+% python3 scripts/Controller.py -f log/sample.log -ua    
+2022-03-31 00:14:48 INFO     Working on user traffic log file: log/sample.log
+2022-03-31 00:14:48 INFO     Working on finding top three user agents by day !
+
+********** USET INPUT *************************
+2022-03-31 00:14:48 INFO     User traffic log file: log/sample.log _/
+2022-03-31 00:14:48 INFO     User_requests_analysis: False _/
+2022-03-31 00:14:48 INFO     User_agents_analysis: True _/
+2022-03-31 00:14:48 INFO     Http_get_post_ratio: False _/
+***********************************************
+
+2022-03-31 00:14:48 INFO      ~~~~ Three Most Frequent User Agents by day ~~~~
+
+{
+    "01/Dec/2011": {
+        "Mozilla/5.0": 1604,
+        "Mozilla/4.0": 569,
+        "WordPress/3.2.1;": 106
+    },
+    "01/Foo/2011": {
+        "Mozilla/4.0": 1
+    },
+    "02/Dec/2011": {
+        "Mozilla/5.0": 1409,
+        "Mozilla/4.0": 541,
+        "WordPress/3.2.1;": 102
+    },
+    "03/Dec/2011": {
+        "Mozilla/5.0": 390,
+        "Mozilla/4.0": 101,
+        "WordPress/3.2.1;": 23
+    },
+    "03/De/2011": {
+        "Mozilla/5.0": 1
+    }
+}
+
+ % python3 scripts/Controller.py -f log/sample.log -ur
+2022-03-31 00:15:04 INFO     Working on user traffic log file: log/sample.log
+2022-03-31 00:15:04 INFO     Working on finding number of requests served by day !
+
+********** USET INPUT *************************
+2022-03-31 00:15:04 INFO     User traffic log file: log/sample.log _/
+2022-03-31 00:15:04 INFO     User_requests_analysis: True _/
+2022-03-31 00:15:04 INFO     User_agents_analysis: False _/
+2022-03-31 00:15:04 INFO     Http_get_post_ratio: False _/
+***********************************************
+
+2022-03-31 00:15:04 INFO      ~~~~ NUMBER OF REQUSTS SERVED BY DAY ~~~~
+
+{
+    "01/Dec/2011": {
+        "127.0.0.1": 2822
+    },
+    "01/Foo/2011": {
+        "127.0.0.1": 1
+    },
+    "02/Dec/2011": {
+        "127.0.0.1": 2572
+    },
+    "03/Dec/2011": {
+        "127.0.0.1": 604
+    },
+    "03/De/2011": {
+        "127.0.0.1": 1
+    }
+}
+
+% python3 scripts/Controller.py -f log/sample.log    
+2022-03-31 00:15:15 INFO     Working on user traffic log file: log/sample.log
+
+ !!!!!! BAD USER INPUT !!!!!
+
+~~~ user traffic analysis usage ~~~~~
+
+Trigger all user traffic analysis:
+
+python3 /opt/user_traffic_analysis/scripts/Controller.py -f/--log_file <LOG_FILE_FULL_PATH> -a/--all_analysis
+
+[-f/--log_file] represnts log file name and -a/--all_analysis will trigger all three analysis:
+
+1. Number of user requests served by day 
+2. List three most frequent user agents by day 
+3. Ratio of GET to POST HTTP method calls by OS by day
+
+****** How to trigger a specific analysis using cmd line options ********
+Options:
+
+[-ur]: Find number of user requests served by day 
+[-ua]: List three most frequent user agents by day 
+[-gp]: Find Ratio of GET to POST HTTP method calls by OS by day
+
+python3 /opt/user_traffic_analysis/scripts/Controller.py  -f/--log_file <LOG_FILE_FULL_PATH> -ur/--user_requests
+python3 /opt/user_traffic_analysis/scripts/Controller.py  -f/--log_file <LOG_FILE_FULL_PATH> -ua/--user_agents
+python3 /opt/user_traffic_analysis/scripts/Controller.py  -f/--log_file <LOG_FILE_FULL_PATH> -gp/--get_post_ratio
+
+please read the official documenation README.md for more detailed information about the tool
+
+
+
