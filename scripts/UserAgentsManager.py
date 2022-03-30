@@ -12,7 +12,6 @@ class UserAgentsManager:
     def __init__(self):
         pass
     
-
     def build_top_three_user_agent(self, frequent_user_agents):
       """
       build_top_three_user_agent:

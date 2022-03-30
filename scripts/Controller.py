@@ -50,12 +50,10 @@ class Controller:
         
         # Part 3: working on finding ratio between GET and POST call by OS by day
         # TO DO: part 3 will be pushed in next subsequent release ..
-        '''
-        WORK IN PROGRESS ......
+        # WORK IN PROGRESS ......
         if self.http_get_post_ratio:
             http_get_post_maanger = HttpMethodsManager()
             get_post_ratio = http_get_post_maanger.fetch_get_post_ratio(self.log_file)
-        '''
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Perform an analysis on user web traffic")
