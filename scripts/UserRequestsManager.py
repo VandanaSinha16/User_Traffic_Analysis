@@ -1,12 +1,10 @@
 #!/usr/bin/env python3
 
-from ipaddress import ip_address
 import logging
 import re
 import os
 import sys
 from collections import Counter
-from telnetlib import IP
 
 logging.basicConfig(format='%(asctime)s %(levelname)-8s %(message)s', level=logging.INFO, datefmt='%Y-%m-%d %H:%M:%S')
 

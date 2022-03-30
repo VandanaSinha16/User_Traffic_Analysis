@@ -1,10 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-from math import degrees
-from pickle import FALSE
-from platform import architecture
-from tabnanny import verbose
 import time
 import logging
 import json
