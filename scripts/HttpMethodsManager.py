@@ -26,8 +26,8 @@ class HttpMethodsManager:
                        if day not in days_list:
                            get_post_count_by_os[day] = {}
                        log_fields = LOG_ITEMS.findall(EACH_REQUEST)
-                       # print(log_fields)
-                       print(log_fields[0][6].split(" "))
+                       print(log_fields)
+                       # print(log_fields[0][6].split(" "))
                        
        except (FileNotFoundError, FileExistsError) as FILE_EXCEPTIONS:
             logging.warning("Something went wrong !!")

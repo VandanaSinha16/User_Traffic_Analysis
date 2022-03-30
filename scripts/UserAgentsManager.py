@@ -44,7 +44,7 @@ class UserAgentsManager:
                 if day not in days_list:
                   user_agent_count[day] = {}
                 log_fields = LOG_ITEMS.findall(EACH_REQUEST)
-                user_agent = (log_fields[0][6]).split(" ")[0]
+                user_agent = (log_fields[0][6])
                 if user_agent not in list(set(user_agent_count[day].keys())):
                   CURRENT_COUNTER = STEP
                   user_agent_count[day][user_agent] = CURRENT_COUNTER

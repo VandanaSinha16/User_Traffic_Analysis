@@ -70,27 +70,40 @@ python3 scripts/Controller.py -f log/sample.log -ua -ur
 
 2022-03-31 00:14:48 INFO      ~~~~ Three Most Frequent User Agents by day ~~~~
 
+asingh07@C02DV330MD6R User_Traffic_Analysis % python3 scripts/Controller.py -f log/sample.log -ua
+2022-03-31 00:40:04 INFO     Working on user traffic log file: log/sample.log
+2022-03-31 00:40:04 INFO     Working on finding top three user agents by day !
+
+********** USET INPUT *************************
+2022-03-31 00:40:04 INFO     User traffic log file: log/sample.log _/
+2022-03-31 00:40:04 INFO     User_requests_analysis: False _/
+2022-03-31 00:40:04 INFO     User_agents_analysis: True _/
+2022-03-31 00:40:04 INFO     Http_get_post_ratio: False _/
+***********************************************
+
+2022-03-31 00:40:04 INFO      ~~~~ Three Most Frequent User Agents by day ~~~~
+
 {
     "01/Dec/2011": {
-        "Mozilla/5.0": 1604,
-        "Mozilla/4.0": 569,
-        "WordPress/3.2.1;": 106
+        "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)": 456,
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 324,
+        "Mozilla/5.0 (compatible; Ezooms/1.0; ezooms.bot@gmail.com)": 245
     },
     "01/Foo/2011": {
-        "Mozilla/4.0": 1
+        "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)": 1
     },
     "02/Dec/2011": {
-        "Mozilla/5.0": 1409,
-        "Mozilla/4.0": 541,
-        "WordPress/3.2.1;": 102
+        "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)": 364,
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 281,
+        "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)": 178
     },
     "03/Dec/2011": {
-        "Mozilla/5.0": 390,
-        "Mozilla/4.0": 101,
-        "WordPress/3.2.1;": 23
+        "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)": 142,
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 68,
+        "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)": 36
     },
     "03/De/2011": {
-        "Mozilla/5.0": 1
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 1
     }
 }
 
@@ -105,23 +118,40 @@ python3 scripts/Controller.py -f log/sample.log -ua -ur
 2022-03-31 00:15:04 INFO     Http_get_post_ratio: False _/
 ***********************************************
 
-2022-03-31 00:15:04 INFO      ~~~~ NUMBER OF REQUSTS SERVED BY DAY ~~~~
+asingh07@C02DV330MD6R User_Traffic_Analysis % python3 scripts/Controller.py -f log/sample.log -ua
+2022-03-31 00:40:04 INFO     Working on user traffic log file: log/sample.log
+2022-03-31 00:40:04 INFO     Working on finding top three user agents by day !
+
+********** USET INPUT *************************
+2022-03-31 00:40:04 INFO     User traffic log file: log/sample.log _/
+2022-03-31 00:40:04 INFO     User_requests_analysis: False _/
+2022-03-31 00:40:04 INFO     User_agents_analysis: True _/
+2022-03-31 00:40:04 INFO     Http_get_post_ratio: False _/
+***********************************************
+
+2022-03-31 00:40:04 INFO      ~~~~ Three Most Frequent User Agents by day ~~~~
 
 {
     "01/Dec/2011": {
-        "127.0.0.1": 2822
+        "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)": 456,
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 324,
+        "Mozilla/5.0 (compatible; Ezooms/1.0; ezooms.bot@gmail.com)": 245
     },
     "01/Foo/2011": {
-        "127.0.0.1": 1
+        "Mozilla/4.0 (compatible; MSIE 5.5; Windows NT)": 1
     },
     "02/Dec/2011": {
-        "127.0.0.1": 2572
+        "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)": 364,
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 281,
+        "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)": 178
     },
     "03/Dec/2011": {
-        "127.0.0.1": 604
+        "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)": 142,
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 68,
+        "Mozilla/5.0 (compatible; Baiduspider/2.0; +http://www.baidu.com/search/spider.html)": 36
     },
     "03/De/2011": {
-        "127.0.0.1": 1
+        "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)": 1
     }
 }
 
@@ -155,5 +185,10 @@ python3 /opt/user_traffic_analysis/scripts/Controller.py  -f/--log_file <LOG_FIL
 
 please read the official documenation README.md for more detailed information about the tool
 
+
+% python3 scripts/Controller.py                  
+usage: Controller.py [-h] -f LOG_FILE [-a] [-ur] [-ua] [-gp] [-v]
+Controller.py: error: the following arguments are required: -f/--log_file
+asingh07@C02DV330MD6R User_Traffic_Analysis %
 
 
