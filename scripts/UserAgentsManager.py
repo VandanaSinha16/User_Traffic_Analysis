@@ -35,6 +35,7 @@ class UserAgentsManager:
         DAY_REGEX = re.compile(r'\d{2}\/\w{1,3}\/\d{4}')
         LOG_ITEMS = re.compile('^(\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}) ([^ ]*) ([^ ]*) \[([^\]]*)\] "([^"]*)" \d+ \d+ "([^"]*)" "([^"]*)"')
         user_agent_count = {}
+        STEP = 1
         try:
           if os.path.isfile(log_file):
             with open(log_file, "r") as ACCESS_LOG_FILE:
@@ -46,10 +47,10 @@ class UserAgentsManager:
                 log_fields = LOG_ITEMS.findall(EACH_REQUEST)
                 user_agent = (log_fields[0][6]).split(" ")[0]
                 if user_agent not in list(set(user_agent_count[day].keys())):
-                  CURRENT_COUNTER = 1
+                  CURRENT_COUNTER = STEP
                   user_agent_count[day][user_agent] = CURRENT_COUNTER
                 elif user_agent in list(set(user_agent_count[day].keys())):
-                  CURRENT_COUNTER = user_agent_count[day][user_agent] + 1
+                  CURRENT_COUNTER = user_agent_count[day][user_agent] + STEP
                   user_agent_count[day][user_agent] = CURRENT_COUNTER
             return user_agent_count
           elif not os.path.isfile(log_file):

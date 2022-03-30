@@ -15,6 +15,7 @@ class UserRequestsManager:
     def fetch_requests_by_day(self, log_file):
         IP_REGEX = re.compile(r'\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}')
         DAY_REGEX = re.compile(r'\d{2}\/\w{1,3}\/\d{4}')
+        STEP = 1
         access_request_count = {}
         try:
           if os.path.isfile(log_file):
@@ -26,10 +27,10 @@ class UserRequestsManager:
                   access_request_count[day] = {}
                 IP_ADDRESS = re.search(IP_REGEX, EACH_REQUEST).group(0)
                 if IP_ADDRESS not in list(set(access_request_count[day].keys())):
-                  CURRENT_COUNTER = 1
+                  CURRENT_COUNTER = STEP
                   access_request_count[day][IP_ADDRESS] = CURRENT_COUNTER
                 elif IP_ADDRESS in list(set(access_request_count[day].keys())):
-                  CURRENT_COUNTER = access_request_count[day][IP_ADDRESS] + 1
+                  CURRENT_COUNTER = access_request_count[day][IP_ADDRESS] + STEP
                   access_request_count[day][IP_ADDRESS] = CURRENT_COUNTER
             return access_request_count
           elif not os.path.isfile(log_file):
