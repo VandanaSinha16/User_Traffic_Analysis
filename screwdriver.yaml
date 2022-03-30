@@ -1,0 +1,94 @@
+version: 4
+shared:
+  settings:
+    annotations:
+        steps:
+            - .: &build_pkg_install
+                 build_pkg_install: |
+                     yum install -y tree git rpmdevtools rpmlint
+                     yum install -y bc
+    email: anuj942singh@gmail.com
+    statuses:
+        - SUCCESS
+        - FAILURE
+        - ABORTED
+jobs:
+  main:
+    requires: [~pr, ~commit]
+    image: <Add docker_registry_url>:4443/containers/rhel8-python3:3.6.8
+    environment:
+        PKGSPACE: user_traffic_analysis
+        ARTIFACTORYHOST: <Add artifactory-ssh-proxy-url-here>
+        ARTIFACTORYREPO: ICE
+        SPECFILE: user_traffic_analysis
+        SRCDIR: SRC
+        GITSRCBRANCH: master
+        RPMBUILDARGS: "-v --clean --rmsource --rmspec -ba"
+        RPMTYPE: RPMS
+        OSVER: 7Server
+        RELEASE: current
+        ARCH: x86_64
+    steps:
+        - *build_pkg_install
+        - create_rpmbuild_tree: |
+              rpmdev-setuptree
+              echo "Build RPMBUILD tree,"
+              tree ~/rpmbuild/
+        - handle_tags: |
+              cd ${SD_SOURCE_DIR}
+              tag_count=$(git tag -l| wc -l)
+              if [[ ${tag_count} -eq 0 ]]; then
+                  git tag 3
+                  export RELEASEVER=3
+              else
+                  cur_tag_val=$(git tag -l | sort -n | tail -1)
+                  new_tag_val="$(echo ${cur_tag_val} + 1 | bc)"
+                  git tag ${new_tag_val}
+                  export RELEASEVER=${new_tag_val}
+              fi
+        - build_rpm: |
+            cp -v ${SD_SOURCE_DIR}/${SPECFILE} ~/rpmbuild/SPECS
+            tar -zcvf ~/rpmbuild/SOURCES/infra_change_executor-0.0.1.tar.gz ${SD_SOURCE_DIR}
+            cd ~/rpmbuild
+            tree
+            echo "checking spec file"
+            rpmlint ~/rpmbuild/SPECS/infra_change_executor.spec
+            rpmbuild ${RPMBUILDARGS?MissingRPMBUILDARGS} --define "_release ${RELEASEVER}" ~/rpmbuild/SPECS/${SPECFILE}
+            tree -h -P *rpm
+            cd ${RPMTYPE}/${ARCH}
+            PKG_FILE=$(ls -1 *${ARCH}.rpm)
+            cp -v ${PKG_FILE} ${PUBLISH_DIR}
+        - publish_rpm: |
+            cd ${PUBLISH_DIR}; ls -la
+            RPM_FILE=$(ls -1 *${ARCH}.rpm)
+            ArtifactoryPath="/${ARTIFACTORYREPO}/rhel/${OSVER}/${ARCH}/release/"
+            echo -e "ArtifactoryPath, ${ArtifactoryPath?ArtifactoryPathMissing}\n"
+            echo "Pushing rpm to artifactory"
+            # scp -v ${SCP_ARGS} ${RPM_FILE} ${ARTIFACTORYHOST}:${ArtifactoryPath}${RPM_FILE}
+            if [[ -z "${SD_PULL_REQUEST}" ]]; then
+              SCP_ARGS='-oBatchMode=yes -P 4443'
+              # scp -v ${SCP_ARGS} ${SD_SOURCE_DIR}/ICE.repo ${ARTIFACTORYHOST}:/${ARTIFACTORYREPO}/ICE.repo
+              scp -v ${SCP_ARGS} ${RPM_FILE} ${ARTIFACTORYHOST}:${ArtifactoryPath}${RPM_FILE}
+            else
+              echo "[PRJOB] Skipping RPM publish to Artifactory"
+            fi
+        - handle_changelog_data: |
+            cd ${SD_SOURCE_DIR}
+            TIME="$(date -u)"
+            git checkout ${GITSRCBRANCH}
+            git branch -a
+            git tag -l
+            git pull --tags origin ${GITSRCBRANCH}
+            echo -e "\n * ${TIME}" | tee -a CHANGELOG.txt
+            echo "$(meta get commit.author.name) : $(meta get commit.author.username)" | tee -a CHANGELOG.txt
+            echo "Commit Message, $(meta get commit.message)" | tee -a CHANGELOG.txt
+            echo "Changed Files, $(meta get commit.changedFiles)" | tee -a CHANGELOG.txt
+            git add CHANGELOG.txt
+            git status
+            git commit -m "[CHANGES] : ${TIME}"
+            if [[ -z "${SD_PULL_REQUEST}" ]]; then
+                git push --tags origin ${GITSRCBRANCH}
+            else
+                git push --dry-run --tags origin ${GITSRCBRANCH}
+            fi
+            

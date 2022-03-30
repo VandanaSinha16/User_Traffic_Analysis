@@ -1,0 +1,5 @@
+[UTA]
+name=UTA
+baseurl=https://<artifactory_url>:4443/artifactory/ICE/rhel/$releasever/$basearch/release
+enabled=1
+gpgcheck=0
