@@ -38,8 +38,8 @@ jobs:
               cd ${SD_SOURCE_DIR}
               tag_count=$(git tag -l| wc -l)
               if [[ ${tag_count} -eq 0 ]]; then
-                  git tag 3
-                  export RELEASEVER=3
+                  git tag 1
+                  export RELEASEVER=1
               else
                   cur_tag_val=$(git tag -l | sort -n | tail -1)
                   new_tag_val="$(echo ${cur_tag_val} + 1 | bc)"
